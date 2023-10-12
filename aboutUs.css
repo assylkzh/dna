@@ -1,0 +1,203 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url(vBenguiatkaz.ttf);
+}
+@font-face {
+    font-family: "CustomFont1";
+    src: url(vAsylm07.ttf);
+}
+
+/*👉responsible img
+👈*/
+.responsive {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+}
+
+
+/*👉Slidebar👈*/
+#main{
+    margin: 40px 50px 0px 50px ;
+
+}
+.sidebar {
+    height: 100%;
+    width: 0; 
+    position: fixed; 
+    overflow-x: hidden;
+    padding-top: 60px; 
+    transition: 0.5s;
+}
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: gray;
+    display: block;
+    transition: 0.3s;
+ }
+
+.sidebar a:hover {
+    color: white;
+}
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 30px;
+}
+  
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    margin-left: 30px;
+}
+  
+.openbtn:hover {
+    background-color: gray;
+}
+  
+#logo{
+    float: right;
+    height: 100px;
+    width: 100px;
+    position: static;
+    /*👉margin: 20px 15px 0 0px ;👈*/
+}
+/*👉 Overall👈*/
+h1{
+    font-family: "CustomFont";
+    color: white;
+    font-size: 50px;
+    margin: 0px 30px 40px 10px;
+    text-align: center;
+
+}
+body{
+    background: rgba(0, 0, 0, 0.9) url(back.png);
+    background-blend-mode: darken;
+    background-size:cover;
+    font-family: "CustomFont1";
+    font-size: 18px;
+    margin: 0;
+    color: white;
+}
+.row{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#start-img{
+    width: 480px;
+    height: 480px;
+    opacity: 0;
+    transition: opacity 2s;
+}
+
+
+/*👉Cards👈*/
+.card-cont{
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 50px;
+}
+.card{
+    background: url(card-back.png);
+    height: fit-content;
+    margin:20px;
+    width: 300px;
+}
+img{
+    width: 380px;
+    height: 350px;
+}
+.btn{
+    color:  black;
+    background-color: #633C28;
+    border-color: #633C28;
+}
+.btn:hover{
+    color:  gray;
+    background-color:#633C28;
+    border-color: #633C28;
+}
+.btn:active{
+    background-color: #633C28;
+}
+.container-fluid{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+/* input */
+input{
+    width: 170px;
+}
+#letter{
+    margin-top: 30px;
+}
+
+
+/*👉pop-ups👈*/
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+  
+.popup-content {
+    background-color: #633C28;
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    color: black;
+    text-align: center;
+}
+  
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+  
+.close:hover {
+    color: white;
+}
+  
+/*👉parallax👈*/
+body, html {
+    height: 80%;
+}
+  
+.parallax {
+    background-image: url('parralax.jpg');
+
+    height: 80%; 
+  
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#overall{
+    text-align: left;
+    margin-left: 270px;
+    font-size: 23px;
+    font-weight: lighter;
+}
+.fa-regular{
+    margin: 5px;
+    margin-bottom: 10px;
+} 

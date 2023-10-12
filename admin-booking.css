@@ -1,0 +1,119 @@
+*{
+    font-family: "CustomFont1";
+}
+@font-face {
+    font-family: "CustomFont";
+    src: url(vBenguiatkaz.ttf);
+}
+@font-face {
+    font-family: "CustomFont1";
+    src: url(vAsylm07.ttf);
+}
+body{
+    font-family: "CustomFont1";
+    background-color: #F0EBCE;
+    background: rgba(0, 0, 0, 0.7) url(back.png);
+    background-blend-mode: darken;
+    background-size:cover;
+}
+#pad {
+    margin: 0px;
+    margin: 0;
+    padding-top: 70px;
+    overflow-x:hidden;
+}
+.col-md-10 {
+    background-color: black;
+}
+.col-sm-12 {
+    background-color: black;
+    padding-right: 5%;
+}
+.col-sm-8 {
+    background-color: black;
+    padding-right: 5%;
+}
+.navbar-brand {
+    margin-left: 5%;
+}
+img {
+    width: 120px;
+    height: 100px;
+}
+h1 {
+    font-family: "CustomFont";
+    color: white;
+    text-align: center;
+    padding-left: 30px;
+    font-size: 50px;
+}
+.b {
+    margin-left: 15%;
+}
+.col-md-4 {
+    text-align: right;
+}
+label {
+    font-family: "CustomFont1";
+    font-size: 30px;
+    color: white;
+}
+input {
+    font-family: "CustomFont1";
+    width: 100%;
+    height: 35px;
+    margin-top: 10px;
+}
+select {
+    font-family: "CustomFont1";
+    width: 100%;
+    margin-top: 10px;
+    height: 35px;
+}
+.row {
+    padding: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button {
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+    margin-top: 10px;
+    opacity: 1;
+    transition: 0.3s;
+}
+.button:hover {opacity: 0.6}
+#message {
+    margin: auto;
+    margin-top: -15px;
+    width: 80%;
+    display:none;
+    color: white;
+    position: relative;
+    padding: 20px;
+  } 
+.valid {
+    color: green;
+    font-size: 18px;
+    margin-bottom: auto;
+}
+.valid:before {
+    position: relative;
+    left: -5px;
+    content: "✔";
+  }
+.invalid {
+    color: #633C28;
+    font-size: 18px;
+    margin-bottom: auto;
+}  
+.invalid:before {
+    position: relative;
+    left: -5px;
+    content: "✖";
+}

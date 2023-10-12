@@ -1,0 +1,173 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url(vBenguiatkaz.ttf);
+}
+@font-face {
+    font-family: "CustomFont1";
+    src: url(vAsylm07.ttf);
+}
+
+body{
+    background: rgba(0, 0, 0, 0.85) url(back.png);
+    background-blend-mode: darken;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: "CustomFont1";
+}
+
+/*👉Before all👈*/
+#entering{
+  /*👉  opacity: 0;
+    transition: opacity 1s;👈*/
+    height: 350px;
+}
+.AboutUs{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+}
+.AboutUs div {
+    margin-bottom: 30px;
+}
+#music-play{
+    background-color: none;
+}
+#heading{
+    text-align: center;
+    font-size: 70px;
+    padding: 0;
+    margin: 0;
+}
+#playButton{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Slide  Bar */
+#main{
+    margin: 40px 50px 0px 50px ;
+
+}
+.sidebar {
+    height: 100%;
+    width: 0; 
+    position: fixed; 
+    overflow-x: hidden;
+    padding-top: 60px; 
+    transition: 0.5s;
+}
+.sidebar a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 20px;
+    color: gray;
+    display: block;
+    transition: 0.3s;
+ }
+
+.sidebar a:hover {
+    color: white;
+}
+
+  
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 30px;
+}
+  
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    margin-left: 30px;
+}
+  
+.openbtn:hover {
+    background-color: gray;
+}
+  
+#logo{
+    float: right;
+    height: 100px;
+    width: 100px;
+    position: static;
+    /*👉margin: 20px 15px 0 0px ;👈*/
+}
+
+
+/* Body */
+.row{
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.row.int{
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 2s ease;
+    opacity: 0;
+    transform: translateY(150px);
+}
+.row.int.active{
+    margin-top: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 2s ease;
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+h1{
+    font-family: "CustomFont";
+    text-align: center;
+    color:#F9F5EB;
+    font-size: 40px;
+    margin-top: 20px;
+}
+
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/*👉resp👈*/
+.responsive {
+    max-width: 100%;
+    height: auto;
+  }
+p{
+    display: block;
+    padding: 20px;
+    color: #F9F5EB;
+    font-size: 20px;
+}
+.popover{
+    background: url(popover.background.png);
+    color: black;
+}
+
+/* Footer */
+hr {
+    border: none;
+    height: 3px;
+    background-color:#F9F5EB;
+}
+#closing{
+    margin: 30px;
+}
+
+
