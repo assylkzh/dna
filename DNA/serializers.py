@@ -23,3 +23,4 @@ class SnacksSerializers(serializers.ModelSerializer):
     class Meta:
         model=Snacks
         fields=['id', 'name', 'description']
+

@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from .models import Hot, Cold, Dessert, Snacks 
+from .models import Hot, Cold, Dessert, Snacks
 from .serializers import HotDSerializers, ColdDSerializers, DessertSerializers, SnacksSerializers
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
@@ -51,7 +51,7 @@ def snack_list(request):
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        
+
 @api_view(['GET', 'PUT', 'DELETE'])
 def hot_detail(request, id):
     try:
