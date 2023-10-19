@@ -12,7 +12,7 @@ class HotDSerializers(serializers.ModelSerializer):
 class ColdDSerializers(serializers.ModelSerializer):
     class Meta:
         model=Cold 
-        fields=['id', 'name', 'description']
+        fields= '__all__'
 
 class DessertSerializers(serializers.ModelSerializer):
     class Meta:

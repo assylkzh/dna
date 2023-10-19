@@ -3,7 +3,8 @@ from .models import Hot, Cold, Dessert, Snacks
 from .serializers import HotDSerializers, ColdDSerializers, DessertSerializers, SnacksSerializers
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, viewsets
+
 
 @api_view(['GET', 'POST'])
 
@@ -131,3 +132,9 @@ def snacks_detail(request, id):
     elif request.method == 'DELETE':
         snacks.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+class ColdDApi(viewsets.ModelViewSet):
+    queryset = Cold.objects.all()
+    serializer_class = ColdDSerializers

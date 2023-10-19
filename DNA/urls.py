@@ -15,8 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.db import router
 from django.urls import include, path, re_path
+from rest_framework import routers
+
 from DNA import views
+from DNA.views import ColdDApi
+
+router = routers.DefaultRouter()
+router.register(r'api/cold', ColdDApi)
 
 
 urlpatterns = [
@@ -28,5 +35,12 @@ urlpatterns = [
     path('HotDrinks/<int:id>', views.hot_detail),
     path('ColdDrinks/<int:id>', views.cold_detail),
     path('Desserts/<int:id>', views.dessert_detail),
-    path('Snacks/<int:id>', views.snacks_detail), 
+    path('Snacks/<int:id>', views.snacks_detail),
+    path('', include(router.urls)),
 ]
+
+
+
+
+
+
