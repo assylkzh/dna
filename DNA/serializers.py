@@ -14,7 +14,7 @@ class ColdDSerializers(serializers.ModelSerializer):
         model=Cold 
         fields= '__all__'
 
-        
+
 class DessertSerializers(serializers.ModelSerializer):
     class Meta:
         model=Dessert
