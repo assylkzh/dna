@@ -136,5 +136,6 @@ def snacks_detail(request, id):
 
 
 class ColdDApi(viewsets.ModelViewSet):
+
     queryset = Cold.objects.all()
     serializer_class = ColdDSerializers
