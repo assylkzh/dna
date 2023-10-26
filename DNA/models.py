@@ -7,12 +7,12 @@ class User (models.Model):
     user_surname = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=50)
+    password = models.CharField(max_length=50, default='0000')
 
 class Types (models.Model):
     type_id = models.AutoField(primary_key=True)
     type_name = models.CharField(max_length=50)
     type_description = models.CharField(max_length=200)
-
 
 class Menu (models.Model):
     item_id = models.AutoField(primary_key=True)
