@@ -1,6 +1,6 @@
 from django.http import JsonResponse
-from .models import Hot, Cold, Dessert, Snacks
-from .serializers import HotDSerializers, ColdDSerializers, DessertSerializers, SnacksSerializers
+from .models import User, Types, Menu, Basket
+from .serializers import UserSerializers, TypesSerializers, MenuSerializers, BasketSerializers
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status, viewsets
@@ -8,134 +8,134 @@ from rest_framework import status, viewsets
 
 @api_view(['GET', 'POST'])
 
-def hot_list(request):
+def user_list(request):
     if request.method == 'GET':
-        hot_drinks = Hot.objects.all()
-        serializer1 = HotDSerializers(hot_drinks, many=True)
+        user = User.objects.all()
+        serializer1 = UserSerializers(user, many=True)
         return JsonResponse(serializer1.data, safe=False)
     if request.method == 'POST':
-        serializer = HotDSerializers(data=request.data)
+        serializer = UserSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-def cold_list(request):
+def types_list(request):
      if request.method == 'GET':
-         cold_drinks = Cold.objects.all()
-         serializer2 = ColdDSerializers(cold_drinks, many=True)
+         types = Types.objects.all()
+         serializer2 = TypesSerializers(types, many=True)
          return JsonResponse(serializer2.data, safe=False)
      if request.method == 'POST':
-        serializer = ColdDSerializers(data=request.data)
+        serializer = TypesSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-def dessert_list(request):
+def menu_list(request):
     if request.method == 'GET':
-        desserts = Dessert.objects.all()
-        serializer3 = DessertSerializers(desserts, many=True)
+        menu = Menu.objects.all()
+        serializer3 = MenuSerializers(menu, many=True)
         return JsonResponse(serializer3.data, safe=False)
     if request.method == 'POST':
-        serializer = DessertSerializers(data=request.data)
+        serializer = MenuSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-def snack_list(request):
+def basket_list(request):
     if request.method == 'GET':
-        snacks = Snacks.objects.all()
-        serializer4 = SnacksSerializers(snacks, many=True)
+        basket = Basket.objects.all()
+        serializer4 = BasketSerializers(basket, many=True)
         return JsonResponse(serializer4.data, safe=False)
     if request.method == 'POST':
-        serializer = SnacksSerializers(data=request.data)
+        serializer = BasketSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def hot_detail(request, id):
+def user_detail(request, id):
     try:
-        hot=Hot.objects.get(pk=id)
-    except Hot.DoesNotExist:
+        user=User.objects.get(pk=id)
+    except User.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND) 
 
     if request.method == 'GET':
-       serializer = HotDSerializers(hot)
+       serializer = UserSerializers(user)
        return Response(serializer.data)
     elif request.method == 'PUT':
-        serializer = HotDSerializers(hot, data=request.data)
+        serializer = UserSerializers(user, data=request.data)
         if serializer.is_valid() :
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        hot.delete()
+        user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def cold_detail(request, id):
+def types_detail(request, id):
     try:
-        cold=Cold.objects.get(pk=id)
-    except Cold.DoesNotExist:
+        types=Types.objects.get(pk=id)
+    except Types.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND) 
 
     if request.method == 'GET':
-        serializer = ColdDSerializers(cold)
+        serializer = TypesSerializers(types)
         return Response(serializer.data)
     elif request.method == 'PUT':
-        serializer = ColdDSerializers(cold, data=request.data)
+        serializer = TypesSerializers(types, data=request.data)
         if serializer.is_valid() :
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        cold.delete()
+        types.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def dessert_detail(request, id):
+def menu_detail(request, id):
     try:
-        dessert=Dessert.objects.get(pk=id)
-    except Dessert.DoesNotExist:
+        menu=Menu.objects.get(pk=id)
+    except Menu.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND) 
 
     if request.method == 'GET':
-        serializer = DessertSerializers(dessert)
+        serializer = MenuSerializers(menu)
         return Response(serializer.data)
     elif request.method == 'PUT':
-        serializer = DessertSerializers(dessert, data=request.data)
+        serializer = MenuSerializers(menu, data=request.data)
         if serializer.is_valid() :
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        dessert.delete()
+        menu.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 @api_view(['GET', 'PUT', 'DELETE'])
-def snacks_detail(request, id):
+def basket_detail(request, id):
     try:
-        snacks=Snacks.objects.get(pk=id)
-    except Snacks.DoesNotExist:
+        basket=Basket.objects.get(pk=id)
+    except Basket.DoesNotExist:
         return Response(status=status.HTTP_404_NOT_FOUND)  
 
     if request.method == 'GET':
-       serializer = SnacksSerializers(snacks)
+       serializer = BasketSerializers(basket)
        return Response(serializer.data)
     elif request.method == 'PUT':
-        serializer = SnacksSerializers(snacks, data=request.data)
+        serializer = BasketSerializers(basket, data=request.data)
         if serializer.is_valid() :
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'DELETE':
-        snacks.delete()
+        basket.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 
-class ColdDApi(viewsets.ModelViewSet):
+class UserApi(viewsets.ModelViewSet):
 
-    queryset = Cold.objects.all()
-    serializer_class = ColdDSerializers
+    queryset = User.objects.all()
+    serializer_class = UserSerializers

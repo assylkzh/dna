@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Cold
-from .models import Hot
-from .models import Dessert
-from .models import Snacks
+from .models import User
+from .models import Types
+from .models import Menu
+from .models import Basket
 
-admin.site.register(Cold)
-admin.site.register(Hot)
-admin.site.register(Dessert)
-admin.site.register(Snacks)
+admin.site.register(User)
+admin.site.register(Types)
+admin.site.register(Menu)
+admin.site.register(Basket)

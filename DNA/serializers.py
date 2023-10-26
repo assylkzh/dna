@@ -1,27 +1,27 @@
 from rest_framework import serializers
-from .models import Hot 
-from .models import Cold
-from .models import Snacks
-from .models import Dessert
+from .models import User
+from .models import Types
+from .models import Menu
+from .models import Basket
 
-class HotDSerializers(serializers.ModelSerializer):
+class UserSerializers(serializers.ModelSerializer):
     class Meta:
-        model=Hot 
-        fields=['id', 'name', 'description']
+        model = User
+        fields='__all__'
 
-class ColdDSerializers(serializers.ModelSerializer):
+class TypesSerializers(serializers.ModelSerializer):
     class Meta:
-        model=Cold 
+        model = Types 
         fields= '__all__'
 
 
-class DessertSerializers(serializers.ModelSerializer):
+class MenuSerializers(serializers.ModelSerializer):
     class Meta:
-        model=Dessert
-        fields=['id', 'name', 'description']
+        model=Menu
+        fields='__all__'
 
-class SnacksSerializers(serializers.ModelSerializer):
+class BasketSerializers(serializers.ModelSerializer):
     class Meta:
-        model=Snacks
-        fields=['id', 'name', 'description']
+        model=Basket
+        fields='__all__'
 

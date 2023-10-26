@@ -20,22 +20,22 @@ from django.urls import include, path, re_path
 from rest_framework import routers
 
 from DNA import views
-from DNA.views import ColdDApi
+from DNA.views import UserApi
 
 router = routers.DefaultRouter()
-router.register(r'api/cold', ColdDApi)
+router.register(r'api/user', UserApi)
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('HotDrinks/', views.hot_list),
-    path('ColdDrinks/', views.cold_list),
-    path('Desserts/', views.dessert_list),
-    path('Snacks/', views.snack_list), 
-    path('HotDrinks/<int:id>', views.hot_detail),
-    path('ColdDrinks/<int:id>', views.cold_detail),
-    path('Desserts/<int:id>', views.dessert_detail),
-    path('Snacks/<int:id>', views.snacks_detail),
+    path('User/', views.user_list),
+    path('Types/', views.types_list),
+    path('Menu/', views.menu_list),
+    path('Basket/', views.basket_list), 
+    path('User/<int:id>', views.user_detail),
+    path('Types/<int:id>', views.types_detail),
+    path('Menu/<int:id>', views.menu_detail),
+    path('Basket/<int:id>', views.basket_detail),
     path('', include(router.urls)),
 ]
 
