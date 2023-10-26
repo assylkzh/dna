@@ -9,38 +9,44 @@ class Migration(migrations.Migration):
 
     dependencies = [
     ]
-
+    
     operations = [
         migrations.CreateModel(
-            name='Cold',
+            name='User',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('description', models.CharField(max_length=200)),
+                ('user_id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('user_name', models.CharField(max_length=50)),
+                ('user_surname', models.CharField(max_length=50)),
+                ('email', models.CharField(max_length=50)),
+                ('phone_number', models.CharField(max_length=50)),
             ],
         ),
         migrations.CreateModel(
-            name='Dessert',
+            name='Menu',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('description', models.CharField(max_length=200)),
+                ('item_id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('type_id', models.IntegerField()),
+                ('item_name', models.CharField(max_length=50)),
+                ('item_description', models.CharField(max_length=200)),
+                ('price', models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='Hot',
+            name='Types',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('description', models.CharField(max_length=200)),
+                ('type_id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('type_name', models.CharField(max_length=50)),
+                ('type_description', models.CharField(max_length=200)),
             ],
         ),
         migrations.CreateModel(
-            name='Snacks',
+            name='Basket',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50)),
-                ('description', models.CharField(max_length=200)),
+                ('basket_id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('item_id', models.IntegerField()),
+                ('user_id', models.IntegerField()),
+                ('total', models.IntegerField()),
             ],
         ),
     ]
+
