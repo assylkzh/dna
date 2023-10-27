@@ -4,6 +4,9 @@ from .serializers import UserSerializers, TypesSerializers, MenuSerializers, Bas
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status, viewsets
+from rest_framework import generics, viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAdminUser
 
 
 @api_view(['GET', 'POST'])
@@ -136,6 +139,18 @@ def basket_detail(request, id):
 
 
 class UserApi(viewsets.ModelViewSet):
-
     queryset = User.objects.all()
     serializer_class = UserSerializers
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+    permission_classes = (IsAdminUser, )
+
+class BasketApi (viewsets.ModelViewSet):
+    queryset = Basket.objects.all()
+    serializer_class = BasketSerializers
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
+class MenuApi (viewsets.ModelViewSet):
+    queryset = Menu.objects.all()
+    serializer_class = MenuSerializers
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+    
