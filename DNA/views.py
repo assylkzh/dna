@@ -8,9 +8,8 @@ from rest_framework import generics, viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.permissions import IsAdminUser
 from django.contrib.auth.hashers import make_password
-# from werkzeug.security import generate_password_hash, check_password_hash
-
-from rest_framework import generics, viewsets
+from werkzeug.security import generate_password_hash
+from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.permissions import IsAdminUser
 
@@ -37,7 +36,7 @@ def user_list(request):
         serializer1 = UserSerializers(user, many=True)
         return JsonResponse(serializer1.data, safe=False)
     if request.method == 'POST':
-        request.data['password'] = hash_password(request.data['password'])
+        request.data['password'] = generate_password_hash(request.data['password'])
         serializer = UserSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()
