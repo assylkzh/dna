@@ -21,12 +21,17 @@ from rest_framework import routers
 
 from DNA import views
 from DNA.views import UserApi
+from DNA.views import BasketApi
+from DNA.views import MenuApi
 
 router = routers.DefaultRouter()
 router.register(r'api/user', UserApi)
+router.register(r'api/basket', BasketApi)
+router.register(r'api/menu', MenuApi)
 
 
 urlpatterns = [
+    path('api/v1/drf-auth/',include('rest_framework.urls')),
     path('admin/', admin.site.urls),
     path('User/', views.user_list),
     path('Types/', views.types_list),
