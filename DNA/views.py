@@ -20,12 +20,10 @@ from rest_framework.permissions import IsAdminUser
 
 def user_list(request):
     if request.method == 'GET':
-        hash= generate_password_hash(request.form['password'])
         user = User.objects.all()
         serializer1 = UserSerializers(user, many=True)
         return JsonResponse(serializer1.data, safe=False)
     if request.method == 'POST':
-        hash= generate_password_hash(request.form['password'])
         serializer = UserSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()
