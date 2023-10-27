@@ -9,12 +9,32 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.permissions import IsAdminUser
 from django.contrib.auth.hashers import make_password
 
+from werkzeug.security import generate_password_hash, check_password_hash
+
+from rest_framework import generics, viewsets
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
+from rest_framework.permissions import IsAdminUser
+
+
+import bcrypt
+
+# Function to hash a password
+def hash_password(password):
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+    return hashed_password
+
+# Function to verify a password
+def verify_password(hashed_password, input_password):
+    return bcrypt.checkpw(input_password.encode('utf-8'), hashed_password)
+
 
 @api_view(['GET', 'POST'])
 
 def user_list(request):
     if request.method == 'GET':
         user = User.objects.all()
+        hashed_password = hash_password('password')
         serializer1 = UserSerializers(user, many=True)
         return JsonResponse(serializer1.data, safe=False)
     if request.method == 'POST':
