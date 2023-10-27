@@ -8,8 +8,7 @@ from rest_framework import generics, viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.permissions import IsAdminUser
 from django.contrib.auth.hashers import make_password
-
-from werkzeug.security import generate_password_hash, check_password_hash
+# from werkzeug.security import generate_password_hash, check_password_hash
 
 from rest_framework import generics, viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
@@ -38,10 +37,12 @@ def user_list(request):
         serializer1 = UserSerializers(user, many=True)
         return JsonResponse(serializer1.data, safe=False)
     if request.method == 'POST':
+        request.data['password'] = hash_password(request.data['password'])
         serializer = UserSerializers(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 def types_list(request):
      if request.method == 'GET':
@@ -77,26 +78,33 @@ def basket_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-@api_view(['GET', 'PUT', 'DELETE'])
+# @api_view(['GET', 'PUT', 'DELETE'])
+
 # def user_detail(request, id):
 #     try:
-#         user=User.objects.get(pk=id)
+#         user = User.objects.get(pk=id)
 #     except User.DoesNotExist:
-#         return Response(status=status.HTTP_404_NOT_FOUND) 
+#         return Response(status=status.HTTP_404_NOT_FOUND)
 
 #     if request.method == 'GET':
-#        serializer = UserSerializers(user)
-#        return Response(serializer.data)
+#         serializer = UserSerializers(user)
+#         return Response(serializer.data)
 #     elif request.method == 'PUT':
+#         new_password = request.data.get('password')
+#         if new_password:
+#             user.password = make_password(new_password)
+
 #         serializer = UserSerializers(user, data=request.data)
-#         if serializer.is_valid() :
+#         if serializer.is_valid():
 #             serializer.save()
 #             return Response(serializer.data)
-#         return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
+#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 #     elif request.method == 'DELETE':
 #         user.delete()
 #         return Response(status=status.HTTP_204_NO_CONTENT)
 
+@api_view(['GET', 'PUT', 'DELETE'])
 def user_detail(request, id):
     try:
         user = User.objects.get(pk=id)
@@ -106,6 +114,7 @@ def user_detail(request, id):
     if request.method == 'GET':
         serializer = UserSerializers(user)
         return Response(serializer.data)
+
     elif request.method == 'PUT':
         new_password = request.data.get('password')
         if new_password:
@@ -120,6 +129,8 @@ def user_detail(request, id):
     elif request.method == 'DELETE':
         user.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def types_detail(request, id):
