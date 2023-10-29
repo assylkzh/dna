@@ -49,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_auto_logout.middleware.auto_logout',   #autologout
 ]
 
 ROOT_URLCONF = 'DNA.urls'
@@ -64,6 +65,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django_auto_logout.context_processors.auto_logout_client',  #autologout
             ],
         },
     },
@@ -136,7 +138,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # managing STATIC files
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
+STATICFILES_DIRS = [ BASE_DIR / "static",
     "/var/www/static/",
 ]
+
+
+# timeout
+
+AUTO_LOGOUT = {
+    'IDLE_TIME': 5, 
+    'REDIRECT_TO_LOGIN_IMMEDIATELY': True,
+    'MESSAGE': 'Your session has expired. Please log in to continue.',
+}

@@ -105,7 +105,7 @@
     <!-- Login Form -->
     <div class="login-form" style="margin-bottom: 20px">
         <h2>Login for admin</h2>
-        <form action="{% url 'admin:index' %}" method="post"> {# Redirect to Django admin #}
+        <form action="{% url 'admin:index' %}" method="post"> {# Redirect to Django admin index page#}
             {% csrf_token %}
             <label for="username" style="width: 100px">Username:</label>
             <input type="text" id="username" name="username" required style=" width: 90%;"><br><br>
@@ -114,6 +114,13 @@
             <input type="submit" value="Login" style=" width: 100px; margin: auto;">
         </form>
     </div>
+
+    {% for message in messages %}
+<div class="message {{ message.tags }}" style="text-align: center;">
+    {{message}}
+</div› 
+{% endfor %}
+    
     <div class="user-info" style="text-align: center;">
         {% if user.is_authenticated %}
             <h2>Hello, {{ user.username }}!</h2>
@@ -124,11 +131,11 @@
         {% endif %}
     </div>
     
-
-    
-
     <footer>
         <p style="color: #18020C;">&copy; 2023 Cafe DNA. All rights reserved.</p>
     </footer>
+
+    {{redirect_to_login_immidately}}  <!-- autologout -->
+    
 </body>
 </html>
