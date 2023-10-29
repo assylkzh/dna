@@ -72,19 +72,6 @@
             background-color: #18020C; /* Button color on hover set to #18020C */
         }
 
-        .logout-button {
-            background-color: #E5FFDE; /* Button background color set to #E5FFDE */
-            padding: 20px;
-            border: 1px solid #ddd;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-
-        .logout-button h2 {
-            color: #634B66; /* Text color set to #634B66 */
-            font-family: 'Verdana', sans-serif; /* Heading font-family set to Verdana */
-        }
-
         footer {
             background-color: #BBCBCB; /* Footer background color set to #BBCBCB */
             color: #fff; /* Footer text color set to white */
@@ -92,7 +79,6 @@
             padding: 10px;
         }
     </style>
-     <link rel="stylesheet" type="text/css" href="dna.css">
 </head>
 <body>
     <header>
@@ -101,7 +87,7 @@
             <ul>
                 <li><a href="/" style="color: #18020C;">Home</a></li>
                 <li><a href="/menu" style="color: #18020C">Menu</a></li>
-                <li><a href="/register-login" style="color: #18020C">Login</a></li>
+                <li><a href="/register" style="color: #18020C">Register</a></li>
                 <li><a href="/admin" style="color: #18020C">Admin</a></li>
                 <!-- Add more navigation links as needed -->
             </ul>
@@ -109,7 +95,7 @@
     </header>
     
     <div class="content" style="text-align: center;">
-        <img src="cafe.jpg" alt="Cafe DNA Logo" width="300">
+        <img src="/templates/cafe.jpg" alt="Cafe DNA Logo" width="300">
         <!-- Display cafe information and menu here -->
         <h2>About Us</h2>
         <p><b>Owners: </b>Asyl, Dilnaz, Nuray</p>
@@ -118,27 +104,28 @@
 
     <!-- Login Form -->
     <div class="login-form" style="margin-bottom: 20px">
-        <h2>Login</h2>
-        <form action="/login" method="post">
+        <h2>Login for admin</h2>
+        <form action="{% url 'admin:index' %}" method="post"> {# Redirect to Django admin #}
             {% csrf_token %}
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required><br><br>
-            <label for "password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
-            <input type="submit" value="Login">
+            <label for="username" style="width: 100px">Username:</label>
+            <input type="text" id="username" name="username" required style=" width: 90%;"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required style=" width: 90%;"><br><br>
+            <input type="submit" value="Login" style=" width: 100px; margin: auto;">
         </form>
     </div>
-
-    <!-- Logout Button -->
-    <div class="logout-button" style="margin-bottom: 20px;">
+    <div class="user-info" style="text-align: center;">
         {% if user.is_authenticated %}
             <h2>Hello, {{ user.username }}!</h2>
-            <form action="/logout" method="post">
-                {% csrf_token %}
-                <input type="submit" value="Logout">
-            </form>
+            <p>Email: {{ user.email }}</p>
+            <!-- Add more user information fields as needed -->
+        {% else %}
+            <p>You are not logged in. </p>
         {% endif %}
     </div>
+    
+
+    
 
     <footer>
         <p style="color: #18020C;">&copy; 2023 Cafe DNA. All rights reserved.</p>

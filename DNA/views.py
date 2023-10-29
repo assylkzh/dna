@@ -187,3 +187,5 @@ def home(request):
     return render(request, 'index.html')
 def menu(request):
     return render(request, 'menu.html')
+def register(request):
+    return render(request, 'register.html')
