@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cafe DNA</title>
+    <style>
+       body {
+            font-family: 'Georgia', serif; /* Body font-family set to Georgia */
+            background-color:#9590A8; /* Background color set to #E5FFDE */
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #634B66; /* Header background color set to #BBCBCB */
+            color: #fff; /* Header text color set to white */
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+            
+        }
+
+        .content {
+            padding: 20px;
+            color: black;
+        }
+
+        .login-form {
+            background-color: #E5FFDE; /* Form background color set to #E5FFDE */
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .login-form h2 {
+            color: #634B66; /* Form text color set to #634B66 */
+            font-family: 'Verdana', sans-serif; /* Heading font-family set to Verdana */
+        }
+
+        .login-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .login-form input[type="submit"] {
+            background-color: #9590A8; /* Submit button background color set to #9590A8 */
+            color: #fff; /* Submit button text color set to white */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .login-form input[type="submit"]:hover {
+            background-color: #18020C; /* Button color on hover set to #18020C */
+        }
+
+        .logout-button {
+            background-color: #E5FFDE; /* Button background color set to #E5FFDE */
+            padding: 20px;
+            border: 1px solid #ddd;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .logout-button h2 {
+            color: #634B66; /* Text color set to #634B66 */
+            font-family: 'Verdana', sans-serif; /* Heading font-family set to Verdana */
+        }
+
+        footer {
+            background-color: #BBCBCB; /* Footer background color set to #BBCBCB */
+            color: #fff; /* Footer text color set to white */
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+     <link rel="stylesheet" type="text/css" href="dna.css">
+</head>
+<body>
+    <header>
+        <h1 style="color: #18020C; font-size: 50px;">Welcome to Cafe DNA</h1> 
+        <nav>
+            <ul>
+                <li><a href="/" style="color: #18020C;">Home</a></li>
+                <li><a href="/menu" style="color: #18020C">Menu</a></li>
+                <li><a href="/register-login" style="color: #18020C">Login</a></li>
+                <li><a href="/admin" style="color: #18020C">Admin</a></li>
+                <!-- Add more navigation links as needed -->
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="content" style="text-align: center;">
+        <img src="cafe.jpg" alt="Cafe DNA Logo" width="300">
+        <!-- Display cafe information and menu here -->
+        <h2>About Us</h2>
+        <p><b>Owners: </b>Asyl, Dilnaz, Nuray</p>
+        <p>Welcome to our cozy cafe! We serve the best coffee and pastries in town.</p>
+    </div>
+
+    <!-- Login Form -->
+    <div class="login-form" style="margin-bottom: 20px">
+        <h2>Login</h2>
+        <form action="/login" method="post">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+            <label for "password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <!-- Logout Button -->
+    <div class="logout-button" style="margin-bottom: 20px;">
+        {% if user.is_authenticated %}
+            <h2>Hello, {{ user.username }}!</h2>
+            <form action="/logout" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Logout">
+            </form>
+        {% endif %}
+    </div>
+
+    <footer>
+        <p style="color: #18020C;">&copy; 2023 Cafe DNA. All rights reserved.</p>
+    </footer>
+</body>
+</html>
