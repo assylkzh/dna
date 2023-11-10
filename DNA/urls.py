@@ -20,9 +20,12 @@ from django.urls import include, path, re_path
 from rest_framework import routers
 
 from DNA import views
-from DNA.views import UserApi
-from DNA.views import BasketApi
-from DNA.views import MenuApi
+from DNA.views import UserApi, BasketApi, MenuApi
+from DNA.views import home
+from DNA.views import menu, register
+
+
+
 
 router = routers.DefaultRouter()
 router.register(r'api/user', UserApi)
@@ -31,18 +34,14 @@ router.register(r'api/menu', MenuApi)
 
 
 urlpatterns = [
-    path('api/v1/drf-auth/',include('rest_framework.urls')),
+    # path('api/v1/drf-auth/',include('rest_framework.urls')),
     path('admin/', admin.site.urls),
-    path('User/', views.user_list),
-    path('Types/', views.types_list),
-    path('Menu/', views.menu_list),
-    path('Basket/', views.basket_list), 
-    path('User/<int:id>', views.user_detail),
-    path('Types/<int:id>', views.types_detail),
-    path('Menu/<int:id>', views.menu_detail),
-    path('Basket/<int:id>', views.basket_detail),
-    path('', include(router.urls)),
+    # path('', include(router.urls)),
+    path('menu/', menu),
+    path('register/', register),
+    path('', home),
 ]
+
 
 
 
