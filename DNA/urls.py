@@ -22,7 +22,7 @@ from rest_framework import routers
 from DNA import views
 from DNA.views import UserApi, BasketApi, MenuApi
 from DNA.views import home
-from DNA.views import menu, register
+from DNA.views import menu, register, user_detail, user_list
 
 
 
@@ -40,6 +40,8 @@ urlpatterns = [
     path('menu/', menu),
     path('register/', register),
     path('', home),
+    path('users/<int:id>/', user_detail, name='user_detail'),
+    path('users/', user_list, name='user_list'),
 ]
 
 

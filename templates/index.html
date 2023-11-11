@@ -1,18 +1,20 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Cafe DNA</title>
     <style>
        body {
-            font-family: 'Georgia', serif; /* Body font-family set to Georgia */
-            background-color:#9590A8; /* Background color set to #E5FFDE */
+            font-family: 'Georgia', serif; 
+            background-color:#9590A8; 
             margin: 0;
             padding: 0;
         }
 
         header {
-            background-color: #634B66; /* Header background color set to #BBCBCB */
-            color: #fff; /* Header text color set to white */
+            background-color: #634B66; 
+            color: #fff; 
             padding: 10px;
             text-align: center;
         }
@@ -44,8 +46,8 @@
         }
 
         .login-form h2 {
-            color: #634B66; /* Form text color set to #634B66 */
-            font-family: 'Verdana', sans-serif; /* Heading font-family set to Verdana */
+            color: #634B66; 
+            font-family: 'Verdana', sans-serif;
         }
 
         .login-form label {
@@ -61,20 +63,20 @@
         }
 
         .login-form input[type="submit"] {
-            background-color: #9590A8; /* Submit button background color set to #9590A8 */
-            color: #fff; /* Submit button text color set to white */
+            background-color: #9590A8; 
+            color: #fff; 
             border: none;
             padding: 10px 20px;
             cursor: pointer;
         }
 
         .login-form input[type="submit"]:hover {
-            background-color: #18020C; /* Button color on hover set to #18020C */
+            background-color: #18020C; 
         }
 
         footer {
-            background-color: #BBCBCB; /* Footer background color set to #BBCBCB */
-            color: #fff; /* Footer text color set to white */
+            background-color: #BBCBCB; 
+            color: #fff; 
             text-align: center;
             padding: 10px;
         }
@@ -89,14 +91,13 @@
                 <li><a href="/menu" style="color: #18020C">Menu</a></li>
                 <li><a href="/register" style="color: #18020C">Register</a></li>
                 <li><a href="/admin" style="color: #18020C">Admin</a></li>
-                <!-- Add more navigation links as needed -->
+               
             </ul>
         </nav>
     </header>
     
     <div class="content" style="text-align: center;">
-        <img src="/templates/cafe.jpg" alt="Cafe DNA Logo" width="300">
-        <!-- Display cafe information and menu here -->
+        <img src="{% static 'DNA/images/cafe.jpg' %}" alt="Cafe DNA Logo" width="300">
         <h2>About Us</h2>
         <p><b>Owners: </b>Asyl, Dilnaz, Nuray</p>
         <p>Welcome to our cozy cafe! We serve the best coffee and pastries in town.</p>
@@ -125,7 +126,6 @@
         {% if user.is_authenticated %}
             <h2>Hello, {{ user.username }}!</h2>
             <p>Email: {{ user.email }}</p>
-            <!-- Add more user information fields as needed -->
         {% else %}
             <p>You are not logged in. </p>
         {% endif %}

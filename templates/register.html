@@ -60,14 +60,19 @@
     </style>
 </head>
 <body>
+    
     <div class="container">
-        <form class="registration-form" action="registration_process.php" method="post">
+        <form class="registration-form" action="{% url 'user_detail' id=0 %}" method="post">
             <h2>Register</h2>
+
+            
+            <input type="hidden" id="user_id" name="user_id" value="{% if user_id %}{{ user_id }}{% endif %}">
+
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
             <label for="email">Email:</label>
-            <input type="email" id="email" name "email" required>
+            <input type="email" id="email" name="email" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
