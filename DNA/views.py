@@ -10,11 +10,9 @@ from rest_framework.permissions import IsAdminUser
 from django.contrib.auth.hashers import make_password
 
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from rest_framework import generics, viewsets
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from rest_framework.permissions import IsAdminUser
-
 
 import bcrypt
 
