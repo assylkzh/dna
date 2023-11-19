@@ -14,7 +14,7 @@ def create_connection(path):
 
 connection = create_connection("E:\\sm_app.sqlite")
 
-def execute_query(connection, query):
+def execute_query(connection: object, query: object) -> object:
     cursor = connection.cursor()
     try:
         cursor.execute(query)
@@ -84,8 +84,21 @@ create_users = """
     """
 
     execute_query(connection, create_users)
+    
 
-select_users = "SELECT * from users"
+create_types = """
+    INSERT INTO
+      types (type_name, type_description)
+    VALUES
+      ('Cold Drinks', 'drinks with ice, recommended for cold lover'),
+      ('Hot Drinks', 'hot drinks, coffee, tea'),
+      ('Milkshakes', 'milkshakes with different tastes ice-cream');
+    """
+
+    execute_query(connection, create_types)
+
+
+select_users = "SELECT * from types"
 
 def execute_read_query(connection, query):
     cursor = connection.cursor()
