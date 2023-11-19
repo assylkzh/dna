@@ -198,4 +198,13 @@ class MenuApi (viewsets.ModelViewSet):
     permission_classes = (IsAuthenticatedOrReadOnly, )
 
 
+def register():
+    return None
 
+
+def home():
+    return None
+
+
+def menu():
+    return None
