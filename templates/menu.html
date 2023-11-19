@@ -1,144 +1,42 @@
-{% load static %}
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Cafe DNA</title>
-    <style>
-        body {
-            font-family: 'Georgia', serif; /* Body font-family set to Georgia */
-            background-color: #9590A8; /* Background color set to #9590A8 */
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #634B66; /* Header background color set to #634B66 */
-            color: #fff; /* Header text color set to white */
-            padding: 10px;
-            text-align: center;
-        }
-
-        .menu {
-            text-align: center;
-            padding: 20px;
-        }
-
-        .menu h2 {
-            color: #18020C; /* Menu heading text color set to #18020C */
-        }
-
-        .menu h3 {
-            color: #3d071f;  /* Category heading text color set to #634B66 */
-        }
-
-        .menu ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .menu li {
-            display: inline-block;
-            width: 300px; /* Adjust the width as needed for proper alignment */
-            margin: 20px;
-            padding: 20px;
-            background-color: #E5FFDE; /* Item background color set to #E5FFDE */
-            border: 1px solid #ddd;
-        }
-
-        .menu img {
-            max-width: 100%;
-        }
-
-        .menu h4 {
-            color: #3d071f; /* Item name text color set to #18020C */
-        }
-
-        .menu p {
-            color: #18020C;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menu</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <h1 style="font-size: 50px;">Welcome to Cafe DNA</h1>
-    </header>
-
-    <!-- Menu Section -->
-    <div class="menu">
-        <h2>Menu</h2>
-
-        <!-- Drinks -->
-        <h3>Drinks</h3>
-        <ul>
-            <li>
-                <img src="{% static 'DNA/images/drink1.jpg' %}" alt="Iced Caramel Macchiato">
-                <h4>Iced Caramel Macchiato</h4>
-                <p>$4.99</p>
-                <p>A refreshing blend of espresso, caramel syrup, and cold milk topped with ice.</p>
-            </li>
-            <li>
-                <img src="{% static 'DNA/images/drink2.jpg' %}" alt="Chai Latte">
-                <h4>Chai Latte</h4>
-                <p>$3.99</p>
-                <p>A soothing combination of spiced chai tea and steamed milk, perfect for any time of the day.</p>
-            </li>
-            <!-- Add more drink items as needed -->
-        </ul>
-
-        <!-- Snacks -->
-        <h3>Snacks</h3>
-        <ul>
-            <li>
-                <img src="{% static 'DNA/images/snack1.jpg' %}" alt="Classic Croissant">
-                <h4>Classic Croissant</h4>
-                <p>$2.49</p>
-                <p>A buttery and flaky croissant that pairs perfectly with a cup of coffee.</p>
-            </li>
-            <li>
-                <img src="{% static 'DNA/images/snack2.jpg' %}" alt="Mozzarella Sticks">
-                <h4>Mozzarella Sticks</h4>
-                <p>$5.99</p>
-                <p>Crispy on the outside, warm and cheesy on the inside, served with marinara sauce.</p>
-            </li>
-            <!-- Add more snack items as needed -->
-        </ul>
-
-        <!-- Coffee -->
-        <h3>Coffee</h3>
-        <ul>
-            <li>
-                <img src="{% static 'DNA/images/coffee1.jpg' %}" alt="Espresso">
-                <h4>Espresso</h4>
-                <p>$2.49</p>
-                <p>A shot of strong and aromatic espresso for those who enjoy a bold coffee experience.</p>
-            </li>
-            <li>
-                <img src="{% static 'DNA/images/coffee2.jpg' %}" alt="Mocha">
-                <h4>Mocha</h4>
-                <p>$4.49</p>
-                <p>A decadent blend of espresso, steamed milk, and rich chocolate, topped with whipped cream.</p>
-            </li>
-            <!-- Add more coffee items as needed -->
-        </ul>
-
-        <!-- Bakery Stuff -->
-        <h3>Bakery</h3>
-        <ul>
-            <li>
-                <img src="{% static 'DNA/images/bakery1.jpg' %}" alt="Red Velvet Cupcake">
-                <h4>Red Velvet Cupcake</h4>
-                <p>$3.49</p>
-                <p>A velvety red cupcake topped with cream cheese frosting, a delightful treat.</p>
-            </li>
-        </ul>
-    </div>
-            
-            <div class="home-link" style="text-align: center; margin-bottom: 30px;">
-                <a href="/" style="color: #18020C;" >Home</a>
+<body class="">
+    
+    <div class="container">
+        <header>
+            <h1>Welcome to DNA Cafe</h1>
+            <div class="shopping">
+                <img src="static\DNA\images\shopping.svg">
+                <span class="quantity">0</span>
             </div>
-            <footer>
-                <p style="color: #18020C; text-align: center;">&copy; 2023 Cafe DNA. All rights reserved.</p>
-            </footer>
-            </body>
+        </header>
+
+        <div class="list">
+          
+        </div>
+    </div>
+    <div class="card">
+        <h1>Cart</h1>
+        <ul class="listCard">
+        </ul>
+        <div class="checkOut">
+            <div class="total">0</div>
+            <div class="closeShopping">Close</div>
+        </div>
+    </div>
+    <div class="home-link" style="text-align: center; margin-top: 30px;">
+        <a href="index.html" style="color: #18020C;" >Home</a>
+    </div>
+    <footer>
+        <p style="color: #18020C; text-align: center;">&copy; 2023 Cafe DNA. All rights reserved.</p>
+    </footer>
+    <script src="main.js"></script>
+</body>
 </html>
