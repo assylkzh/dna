@@ -85,24 +85,23 @@
 <body>
     <header>
         <h1 style="color: #18020C; font-size: 50px;">Welcome to Cafe DNA</h1> 
-        <nav>
+   <nav>
             <ul>
                 <li><a href="/" style="color: #18020C;">Home</a></li>
-                <li><a href="menu.html" style="color: #18020C">Menu</a></li>
-                <li><a href="register.html" style="color: #18020C">Register</a></li>
+                <li><a href="/menu" style="color: #18020C">Menu</a></li>
+                <li><a href="/register" style="color: #18020C">Register</a></li>
                 <li><a href="/admin" style="color: #18020C">Admin</a></li>
-               
+
             </ul>
         </nav>
     </header>
-    
+
     <div class="content" style="text-align: center;">
-        <img src="static\DNA\images\cafe.jpg" alt="Cafe DNA Logo" width="300">
+        <img src="{% static 'DNA/images/cafe.jpg' %}" alt="Cafe DNA Logo" width="300">
         <h2>About Us</h2>
         <p><b>Owners: </b>Asyl, Dilnaz, Nuray</p>
         <p>Welcome to our cozy cafe! We serve the best coffee and pastries in town.</p>
     </div>
-    <script href="main.js"></script>
 
     <!-- Login Form -->
     <div class="login-form" style="margin-bottom: 20px">
